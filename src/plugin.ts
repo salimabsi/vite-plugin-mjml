@@ -70,7 +70,7 @@ export default function(options: Partial<Options> = {}): Plugin {
 			if (compileOptions.input.includes('*')) {
 				input = compileOptions.input
 			} else if (!compileOptions.input.match(/\.mjml/)) {
-				input = path.join(compileOptions.input, '**/*.mjml')
+				input = path.join(compileOptions.input, '**/*.mjml').replace(/\\/g, '/')
 			}
 
 			const files = await fg(input)
